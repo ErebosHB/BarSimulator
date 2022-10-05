@@ -2,13 +2,13 @@ package Klasssen;
 
 import java.util.ArrayList;
 
-public abstract class Area {
+public class Area {
     private String name;
     private int size;
     private ArrayList<Guest> guestlist;
 
 
-    public Area(String name, ArrayList guestlist){
+    public Area(String name){
         this.name = name;
         guestlist = new ArrayList<>();
     }

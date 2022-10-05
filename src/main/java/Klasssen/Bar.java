@@ -4,38 +4,29 @@ import java.util.ArrayList;
 
 public class Bar {
     private String barName;
-    private Buehne buehne;
-    private Theke theke;
-    private Tuer tuer;
-
     private final int maxBuehne;
     private final int maxTheke;
     private final int maxTuer;
+
+    Area buehne;
+    Area theke;
+    Area tuer;
     private int maxBar;
 
     private ArrayList<Person> personenBar;
     private ArrayList<String> kellner;
     private ArrayList<Musician> liveBand;
 
-    public Bar(String barName, int maxBuehne,int maxTheke, int maxTuer){
+    public Bar(String barName,Area buehne, Area theke, Area tuer, int maxBuehne,int maxTheke, int maxTuer){
         personenBar = new ArrayList<>();
         liveBand = new ArrayList<>();
         this.barName = barName;
+        this.buehne = buehne;
+        this.theke = theke;
+        this.tuer = tuer;
         this.maxBuehne = maxBuehne;
         this.maxTheke = maxTheke;
         this.maxTuer = maxTuer;
-    }
-
-    public Buehne getBuehne() {
-        return buehne;
-    }
-
-    public Theke getTheke() {
-        return theke;
-    }
-
-    public Tuer getTuer() {
-        return tuer;
     }
 
     public String getBarName() {

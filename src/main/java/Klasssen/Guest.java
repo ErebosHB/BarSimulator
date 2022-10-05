@@ -7,7 +7,9 @@ public class Guest extends Person{
 
     public void platzSuche(Bar bar){
 
-        if (bar.getPersonenBar().contains(getNachname())){
+if (bar.getMaxBar()>bar.getPersonenBar().size()){
+    bar.getPersonenBar().add(new Guest(getVorname(),getNachname()));
+    if (bar.getPersonenBar().contains(getNachname())){
             if (bar.getMaxBuehne()> bar.getBuehne().getGuestlist().size()){
                 bar.getBuehne().getGuestlist().add(new Guest(getVorname(),getNachname()));
             }
@@ -18,7 +20,7 @@ public class Guest extends Person{
             else {
                 bar.getTuer().getGuestlist().add(new Guest(getVorname(),getNachname()));
             }
-        }
+        }}
     }
 
 
