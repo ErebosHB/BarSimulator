@@ -37,6 +37,18 @@ public class Bar {
         this.barName = barName;
     }
 
+    public Area getBuehne() {
+        return buehne;
+    }
+
+    public Area getTheke() {
+        return theke;
+    }
+
+    public Area getTuer() {
+        return tuer;
+    }
+
 
 
     public int getMaxBuehne() {
