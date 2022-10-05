@@ -38,14 +38,44 @@ public class Main {
         guest2.platzSuche(bar);
         guest3.platzSuche(bar);
         guest4.platzSuche(bar);
+        guest5.platzSuche(bar);
+        guest6.platzSuche(bar);
+        guest7.platzSuche(bar);
+        guest8.platzSuche(bar);
+        guest9.platzSuche(bar);
+        guest10.platzSuche(bar);
+
+
+
+
+
 
         System.out.println(area1.getGuestlist());
         System.out.println(area2.getGuestlist());
+        System.out.println(area3.getGuestlist());
+        System.out.println("");
+        System.out.println(bar.getPersonenBar());
 
-        guest4.leave(bar);
+        guest1.doSomething(bar);
+        guest2.doSomething(bar);
+        guest3.doSomething(bar);
+        guest4.doSomething(bar);
+        guest5.doSomething(bar);
+        guest6.doSomething(bar);
+        guest7.doSomething(bar);
+        guest8.doSomething(bar);
+        guest9.doSomething(bar);
+        guest10.doSomething(bar);
+
+        System.out.println("\n\n\n");
+
+
 
         System.out.println(area1.getGuestlist());
         System.out.println(area2.getGuestlist());
+        System.out.println(area3.getGuestlist());
+        System.out.println("");
+        System.out.println(bar.getPersonenBar());
 
 
 

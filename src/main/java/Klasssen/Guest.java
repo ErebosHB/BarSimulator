@@ -25,36 +25,41 @@ public class Guest extends Person {
         }
     }
 
-    public void leave(Bar bar){
-        for (int i = 0;i < bar.getPersonenBar().size();i++) {
-            if (bar.getPersonenBar().get(i).getNachname().equals(getNachname())){
-                bar.getPersonenBar().remove(i);
-                for (int y = 0;y < bar.getBuehne().getGuestlist().size(); y++){
-                    if (bar.getBuehne().getGuestlist().get(y).equals(getNachname())){
-                        bar.getBuehne().getGuestlist().remove(y);
+    public void doSomething(Bar bar){
+        double ran = Math.random();
+        if (ran >= 0.8) {
+            for (int i = 0;i < bar.getPersonenBar().size();i++) {
+                if (bar.getPersonenBar().get(i).getNachname().equals(getNachname())){
+                    bar.getPersonenBar().remove(i);
+                    for (int y = 0;y < bar.getBuehne().getGuestlist().size(); y++){
+                        if (bar.getBuehne().getGuestlist().get(y).equals(getNachname())){
+                            bar.getBuehne().getGuestlist().remove(y);
+                        }
                     }
-                }
-                for (int x = 0; x < bar.getTheke().getGuestlist().size(); x++){
-                    if (bar.getTheke().getGuestlist().get(x).equals(getNachname())){
-                        bar.getTheke().getGuestlist().remove(x);
+                    for (int x = 0; x < bar.getTheke().getGuestlist().size(); x++){
+                        if (bar.getTheke().getGuestlist().get(x).equals(getNachname())){
+                            bar.getTheke().getGuestlist().remove(x);
+                        }
                     }
-                }
-                for (int z = 0; z < bar.getTuer().getGuestlist().size();z++){
-                    bar.getTuer().getGuestlist().remove(z);
+                    for (int z = 0; z < bar.getTuer().getGuestlist().size();z++){
+                        if (bar.getTuer().getGuestlist().get(z).equals(getNachname()))
+                        bar.getTuer().getGuestlist().remove(z);
+                    }
                 }
             }
+
         }
+
+
+
     }
 
 
-    public void doSomething(Bar bar) {
 
-        double ran = Math.random();
-        if (ran > 0.8) {
-            if (bar.getPersonenBar().contains(getNachname())) ;
 
-        }
-    }
+
+
+
 
     @Override
     public String toString() {
