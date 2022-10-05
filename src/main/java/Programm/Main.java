@@ -23,12 +23,9 @@ public class Main {
         Musician musician3 = new Musician("Max","Kaiser","Keyboard");
         Musician musician4 = new Musician("Anton","Kaiser","Schlagzeug");
 
-        Bar bar = new Bar("Kneipe",3,3,3);
-        bar.setSizeBar(9);
 
-        private void enter(bar){
 
-        }
+
 
 
 

@@ -16,12 +16,16 @@ public class Musician extends Person{
         this.instrument = instrument;
     }
 
+   public void doSomething(){
+       System.out.println("Der Musiker spielt: "+ getInstrument());
+   }
+
     @Override
     public String toString() {
         String text = "Musiker";
-        text+= "Vorname:\n"+ getVorname();
-        text+= "Nachname:\n"+getNachname();
-        text+= "Instrument:\n"+getInstrument();
+        text +="Vorname:\n"+ getVorname();
+        text+="Nachname:\n"+getNachname();
+        text+="Instrument:\n"+getInstrument();
         return text;
     }
 }

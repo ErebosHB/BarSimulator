@@ -2,27 +2,22 @@ package Klasssen;
 
 import java.util.ArrayList;
 
-public class Area {
+public abstract class Area {
     private String name;
-    private int rating;
     private int size;
     private ArrayList<Guest> guestlist;
 
 
+    public Area(String name, ArrayList guestlist){
+        this.name = name;
+        guestlist = new ArrayList<>();
+    }
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
     }
 
     public int getSize() {
@@ -37,10 +32,11 @@ public class Area {
         this.guestlist = guestlist;
     }
 
+
+
     @Override
     public String toString() {
         return "Area:\n"+ name + '\t' +
-                "Rating:\n " + rating +"\t"+
                 "Size:\n" + size +"\t"+
                 "Guestlist:\n"+ guestlist;
     }

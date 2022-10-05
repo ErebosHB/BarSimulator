@@ -8,21 +8,19 @@ public class Programm {
     private Area theke;
     private Area tuer;
     private Guest guest;
-    
-    
 
-    public static void musikerAufbuehne(Bar bar){
-        if (bar.getLiveBand().size() >= 5){
+
+    public static void musikerAufbuehne(Bar bar) {
+        if (bar.getLiveBand().size() >= 5) {
             System.out.println("fehlermeldung");
         }
     }
 
-    public ArrayList zuweisung(Guest guest){
-        if (buehne.getGuestlist().size() <= buehne.getSize()){
-            buehne.getGuestlist().add()
+    public void zuweisung(Guest guest) {
+        if (buehne.getGuestlist().size() <= buehne.getSize()) {
+
         }
+
+
     }
-
-
-    
 }

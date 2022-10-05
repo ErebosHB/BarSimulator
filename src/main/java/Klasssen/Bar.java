@@ -3,22 +3,39 @@ package Klasssen;
 import java.util.ArrayList;
 
 public class Bar {
-
     private String barName;
-    private int anzahlBuehne;
-    private int anzahlTheke;
-    private int anzahlTuer;
-    private int sizeBar;
+    private Buehne buehne;
+    private Theke theke;
+    private Tuer tuer;
 
-    private ArrayList guestsBar;
-    private ArrayList kellner;
-    private ArrayList liveBand;
+    private final int maxBuehne;
+    private final int maxTheke;
+    private final int maxTuer;
+    private int maxBar;
 
-    public Bar(String barName,int anzahlArea1,int anzahlArea2, int anzahlArea3){
+    private ArrayList<Person> personenBar;
+    private ArrayList<String> kellner;
+    private ArrayList<Musician> liveBand;
+
+    public Bar(String barName, int maxBuehne,int maxTheke, int maxTuer){
+        personenBar = new ArrayList<>();
+        liveBand = new ArrayList<>();
         this.barName = barName;
-        this.anzahlBuehne = anzahlBuehne;
-        this.anzahlTheke = anzahlArea2;
-        this.anzahlTuer = anzahlArea3;
+        this.maxBuehne = maxBuehne;
+        this.maxTheke = maxTheke;
+        this.maxTuer = maxTuer;
+    }
+
+    public Buehne getBuehne() {
+        return buehne;
+    }
+
+    public Theke getTheke() {
+        return theke;
+    }
+
+    public Tuer getTuer() {
+        return tuer;
     }
 
     public String getBarName() {
@@ -29,51 +46,67 @@ public class Bar {
         this.barName = barName;
     }
 
-    public int getAnzahlBuehne() {
-        return anzahlBuehne;
+
+
+    public int getMaxBuehne() {
+        return maxBuehne;
     }
 
-    public int getAnzahlTheke() {
-        return anzahlTheke;
+    public int getMaxTheke() {
+        return maxTheke;
     }
 
-    public int getAnzahlTuer() {
-        return anzahlTuer;
+    public int getMaxTuer() {
+        return maxTuer;
     }
 
-    public int getSizeBar() {
-        return sizeBar;
+    public int getMaxBar() {
+        maxBar = maxBuehne+maxTheke+maxTuer;
+        return maxBar;
     }
 
-    public void setSizeBar(int sizeBar) {
-        this.sizeBar = sizeBar;
+    public ArrayList<Person> getPersonenBar() {
+        return personenBar;
     }
 
-    public ArrayList getGuestsBar() {
-        return guestsBar;
+    public void setPersonenBar(ArrayList<Person> personenBar) {
+        this.personenBar = personenBar;
     }
 
-    public void setGuestsBar(ArrayList guestsBar) {
-        this.guestsBar = guestsBar;
-    }
-
-    public ArrayList getKellner() {
-        return kellner;
-    }
-
-    public ArrayList getLiveBand() {
+    public ArrayList<Musician> getLiveBand() {
         return liveBand;
     }
 
+    public void setLiveBand(ArrayList<Musician> liveBand) {
+        this.liveBand = liveBand;
+    }
+
+    public ArrayList<String> getKellner() {
+        if (kellner.size()>=5){
+            System.out.println("Es ist nicht genug Platz auf der Bühne für die Band");
+        }
+        return kellner;
+    }
+
+    public int anzahlKellner(){
+        int anzkellner = maxBar/5;
+        if (anzkellner<=3){
+            anzkellner = 3;
+        }
+        return anzkellner;
+    }
+
+
+
     @Override
     public String toString() {
-        return "Bar:\n" + barName + "\n\n" +
-                "Plätze auf der Bühne:\n" + anzahlBuehne +
-                "Plätze an der Theke:\n" + anzahlTheke +
-                "Plätze an der Tür:\n" + anzahlTuer +
-                "Plätze in der Bar:\n" + sizeBar +
-                "Gäste in der Bar:\n" + guestsBar +
-                "Anzahl kellner:\n" + kellner +
-                "Anzahl Band-Mitgliede:\nr" + liveBand;
+        return "\nBar:\t" + barName + "\t\t" +
+                "\nPlätze auf der Bühne:\t" + maxBuehne +
+                "\nPlätze an der Theke:\t" + maxTheke +
+                "\nPlätze an der Tür:\t" + maxTuer +
+                "\nPlätze in der Bar:\t" + getMaxBar() +
+                "\nGäste in der Bar:\t" + personenBar +
+                "\nAnzahl kellner:\t" + anzahlKellner() +
+                "\nAnzahl Band-Mitglieder:\t" + liveBand;
     }
 }
