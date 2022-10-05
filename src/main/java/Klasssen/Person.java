@@ -26,6 +26,20 @@ public abstract class Person {
 
     }
 
+    public void enter(Bar bar){
+        if (bar.getMaxBar() > bar.getPersonenBar().size()){
+            bar.getPersonenBar().add(new Guest(getVorname(),getNachname()));
+        }
+    }
+
+    public void leave(Bar bar){
+        for (int i = 0;i < bar.getPersonenBar().size();i++) {
+            if (bar.getPersonenBar().get(i).getNachname().equals(getNachname())){
+                bar.getPersonenBar().remove(i);
+            }
+        }
+    }
+
 
 
 }
