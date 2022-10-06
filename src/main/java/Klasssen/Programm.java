@@ -16,11 +16,8 @@ public class Programm {
         }
     }
 
-    public void zuweisung(Guest guest) {
-        if (buehne.getGuestlist().size() <= buehne.getSize()) {
 
-        }
 
 
     }
-}
+

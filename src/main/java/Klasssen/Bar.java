@@ -104,8 +104,11 @@ public class Bar {
     @Override
     public String toString() {
         return "\nBar:\t" + barName + "\t\t" +
+                getBuehne()+
                 "\nPlätze auf der Bühne:\t" + maxBuehne +
+                getTheke()+
                 "\nPlätze an der Theke:\t" + maxTheke +
+                getTuer()+
                 "\nPlätze an der Tür:\t" + maxTuer +
                 "\nPlätze in der Bar:\t" + getMaxBar() +
                 "\nGäste in der Bar:\t" + personenBar +
