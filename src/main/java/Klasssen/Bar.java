@@ -81,13 +81,13 @@ public class Bar {
     }
 
     public void setLiveBand(ArrayList<Musician> liveBand) {
+        if (kellner.size()>=5){
+            System.out.println("Es ist nicht genug Platz auf der Bühne für die Band");
+        }
         this.liveBand = liveBand;
     }
 
     public ArrayList<String> getKellner() {
-        if (kellner.size()>=5){
-            System.out.println("Es ist nicht genug Platz auf der Bühne für die Band");
-        }
         return kellner;
     }
 
@@ -110,7 +110,7 @@ public class Bar {
                 "\nPlätze an der Theke:\t" + maxTheke +
                 getTuer()+
                 "\nPlätze an der Tür:\t" + maxTuer +
-                "\nPlätze in der Bar:\t" + getMaxBar() +
+                "\nPlätze in der Bar:\t" + maxBar +
                 "\nGäste in der Bar:\t" + personenBar +
                 "\nAnzahl kellner:\t" + anzahlKellner() +
                 "\nAnzahl Band-Mitglieder:\t" + liveBand;

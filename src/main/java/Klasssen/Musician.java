@@ -15,6 +15,9 @@ public class Musician extends Person{
     public void setInstrument(String instrument) {
         this.instrument = instrument;
     }
+    public void enterMusiker(){
+
+    }
 
    public void doSomething(){
        System.out.println("Der Musiker spielt: "+ getInstrument());

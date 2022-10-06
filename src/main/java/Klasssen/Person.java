@@ -1,8 +1,12 @@
 package Klasssen;
 
+import java.util.ArrayList;
+
 public abstract class Person {
     private String vorname;
     private String nachname;
+
+    private Bar barPerson;
 
     public Person(String vorname, String nachname){
         this.vorname = vorname;
@@ -26,10 +30,19 @@ public abstract class Person {
 
     }
 
-    public void enter(Bar bar){
+    public Bar getBarPerson() {
+        return barPerson;
+    }
+
+    public void setBarPerson(Bar barPerson) {
+        this.barPerson = barPerson;
+    }
+
+    public ArrayList enter(Bar bar){
         if (bar.getMaxBar() > bar.getPersonenBar().size()){
             bar.getPersonenBar().add(new Guest(getVorname(),getNachname()));
         }
+        return bar.getPersonenBar();
     }
 
     public void leave(Bar bar){
