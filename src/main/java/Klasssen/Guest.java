@@ -1,7 +1,6 @@
 package Klasssen;
 
 
-
 public class Guest extends Person {
 
     public Guest(String vorname, String nachname) {
@@ -11,7 +10,7 @@ public class Guest extends Person {
     public Bar platzSuche(Bar bar) {
         if (bar.getMaxBar() > bar.getPersonen().size()) {
             enter(bar);
-            for (int i = 0; i <bar.getPersonen().size(); i++){
+            for (int i = 0; i < bar.getPersonen().size(); i++) {
                 if (bar.getPersonen().get(i).getNachname().equals(getNachname())) {
                     if (bar.getMaxBuehne() > bar.getBuehne().getGuestlist().size()) {
                         bar.getBuehne().getGuestlist().add(this);
@@ -26,51 +25,40 @@ public class Guest extends Person {
 
 
         }
-        return  getBar();
+        return getBar();
     }
 
-    public void doSomething(){
-        double ran = Math.random();
-            if (ran > 0.5){
-                    leave();
-                if (getBar().getBuehne().getGuestlist().contains(this)){
+    public void doSomething(Bar bar) {
+
+        if(this.getBar() == null){
+            platzSuche(bar);
+        }
+        else {
+            double ran = Math.random();
+            if (ran > 0.5) {
+                leave();
+                if (getBar().getBuehne().getGuestlist().contains(this)) {
                     getBar().getBuehne().getGuestlist().remove(this);
+                    this.setBar(null);
                 } else if (getBar().getTheke().getGuestlist().contains(this)) {
                     getBar().getTheke().getGuestlist().remove(this);
-                }
-                else {
+                    this.setBar(null);
+                } else {
                     getBar().getTuer().getGuestlist().remove(this);
+                    this.setBar(null);
                 }
-            }
+        }
+
+        }
     }
 
 
-    public void bewegen(){
-        int number = 2;
 
-        switch (number){
-                case 1:
-                    if (getBar() == null){
-                        platzSuche(getBar());
-                    }
-                case 2:
-                    if (getBar() != null){
-                        doSomething();
-
-                    }
-                    else {
-                        bewegen();
-                    }
-
-            }
-
-
-    }
 
     @Override
     public String toString() {
-        return "\n\nVorname: "+getVorname()+
-                "\nNachname: "+getNachname();
+        return "\n\nVorname: " + getVorname() +
+                "\nNachname: " + getNachname();
 
     }
 }

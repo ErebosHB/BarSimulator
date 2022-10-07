@@ -46,7 +46,7 @@ public abstract class Person {
 
     public void leave() {
         for (int i = 0; i < getBar().getPersonen().size(); i++) {
-            if (getBar().getPersonen().get(i).getNachname().equals(getNachname())){
+            if (getBar().getPersonen().get(i).getNachname().equals(getNachname())) {
                 getBar().getPersonen().remove(i);
                 break;
             }

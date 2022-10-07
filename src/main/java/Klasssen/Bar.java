@@ -15,11 +15,11 @@ public class Bar {
     private Area tuer;
     private int maxBar;
 
-    private ArrayList<Person> personen;
+    private ArrayList<Guest> personen;
     private ArrayList<String> kellner;
     private ArrayList<Musician> liveBand;
 
-    public Bar(String barName,Area buehne, Area theke, Area tuer, int maxBuehne,int maxTheke, int maxTuer){
+    public Bar(String barName, Area buehne, Area theke, Area tuer, int maxBuehne, int maxTheke, int maxTuer) {
         personen = new ArrayList<>();
         liveBand = new ArrayList<>();
         this.barName = barName;
@@ -64,19 +64,19 @@ public class Bar {
     }
 
     public int getMaxBar() {
-        maxBar = maxBuehne+maxTheke+maxTuer;
+        maxBar = maxBuehne + maxTheke + maxTuer;
         return maxBar;
     }
 
-    public ArrayList<Person> getPersonen() {
+    public ArrayList<Guest> getPersonen() {
         return personen;
     }
 
-    public Person getPersonByLastName(String lastName){
+    public Person getPersonByLastName(String lastName) {
         return personen.stream().filter(e -> e.getNachname().equals(lastName)).findFirst().get();
     }
 
-    public void setPersonen(ArrayList<Person> personen) {
+    public void setPersonen(ArrayList<Guest> personen) {
         this.personen = personen;
     }
 
@@ -85,7 +85,7 @@ public class Bar {
     }
 
     public void setLiveBand(ArrayList<Musician> liveBand) {
-        if (liveBand.size()>=5){
+        if (liveBand.size() >= 5) {
             System.out.println("Es ist nicht genug Platz auf der Bühne für die Band");
         }
         this.liveBand = liveBand;
@@ -95,14 +95,13 @@ public class Bar {
         return kellner;
     }
 
-    public int anzahlKellner(){
-        int anzkellner = maxBar/5;
-        if (anzkellner<=3){
+    public int anzahlKellner() {
+        int anzkellner = maxBar / 5;
+        if (anzkellner <= 3) {
             anzkellner = 3;
         }
         return anzkellner;
     }
-
 
 
     @Override
@@ -111,12 +110,12 @@ public class Bar {
                 "\nPlätze:\t" + maxBar +
                 "\nGäste in der Bar:\t" + personen.size() +
                 "\n\nPlätze:\t" + maxBuehne +
-                getBuehne()+
+                getBuehne() +
                 "\n\nPlätze:\t" + maxTheke +
-                getTheke()+
+                getTheke() +
                 "\n\nPlätze:\t" + maxTuer +
-                getTuer()+
+                getTuer() +
                 "\n\nAnzahl kellner:\t" + anzahlKellner() +
-                "\nAnzahl Band-Mitglieder:\t"+liveBand.size()+"\n" + liveBand;
+                "\nAnzahl Band-Mitglieder:\t" + liveBand.size() + "\n" + liveBand;
     }
 }

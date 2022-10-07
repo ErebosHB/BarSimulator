@@ -7,7 +7,7 @@ public class Area {
     private ArrayList<Person> guestlist;
 
 
-    public Area(String name){
+    public Area(String name) {
         this.name = name;
         guestlist = new ArrayList<>();
     }
@@ -29,11 +29,10 @@ public class Area {
     }
 
 
-
     @Override
     public String toString() {
-        String text = "\nBereich: "+getName();
-        text+="\nGäste: "+guestlist.size()+"\n"+getGuestlist();
+        String text = "\nBereich: " + getName();
+        text += "\nGäste: " + guestlist.size() + "\n" + getGuestlist();
         return text;
     }
 }
