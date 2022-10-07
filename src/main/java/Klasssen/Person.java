@@ -1,14 +1,11 @@
 package Klasssen;
 
-import java.util.ArrayList;
-
 public abstract class Person {
     private String vorname;
     private String nachname;
+    private Bar bar;
 
-    private Bar barPerson;
-
-    public Person(String vorname, String nachname){
+    public Person(String vorname, String nachname) {
         this.vorname = vorname;
         this.nachname = nachname;
     }
@@ -30,29 +27,29 @@ public abstract class Person {
 
     }
 
-    public Bar getBarPerson() {
-        return barPerson;
+    public Bar getBar() {
+        return bar;
     }
 
-    public void setBarPerson(Bar barPerson) {
-        this.barPerson = barPerson;
+    public void setBar(Bar bar) {
+        this.bar = bar;
     }
 
-    public ArrayList enter(Bar bar){
-        if (bar.getMaxBar() > bar.getPersonenBar().size()){
-            bar.getPersonenBar().add(new Guest(getVorname(),getNachname()));
+    public void enter(Bar bar) {
+        if (bar.getMaxBar() > bar.getPersonen().size()) {
+            bar.getPersonen().add(new Guest(getVorname(), getNachname()));
+            setBar(bar);
+
         }
-        return bar.getPersonenBar();
+
     }
 
-    public void leave(Bar bar){
-        for (int i = 0;i < bar.getPersonenBar().size();i++) {
-            if (bar.getPersonenBar().get(i).getNachname().equals(getNachname())){
-                bar.getPersonenBar().remove(i);
+    public void leave() {
+        for (int i = 0; i < getBar().getPersonen().size(); i++) {
+            if (getBar().getPersonen().get(i).getNachname().equals(getNachname())){
+                getBar().getPersonen().remove(i);
+                break;
             }
         }
     }
-
-
-
 }

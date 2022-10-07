@@ -15,8 +15,9 @@ public class Musician extends Person{
     public void setInstrument(String instrument) {
         this.instrument = instrument;
     }
-    public void enterMusiker(){
-
+    public Bar enterMusiker(Bar bar){
+        bar.getLiveBand().add(this);
+        return getBar();
     }
 
    public void doSomething(){
@@ -25,10 +26,10 @@ public class Musician extends Person{
 
     @Override
     public String toString() {
-        String text = "Musiker";
-        text +="Vorname:\n"+ getVorname();
-        text+="Nachname:\n"+getNachname();
-        text+="Instrument:\n"+getInstrument();
+        String text ="\n\nVorname:"+ getVorname();
+        text+="\nNachname:"+getNachname();
+        text+="\nInstrument:"+getInstrument();
+
         return text;
     }
 }

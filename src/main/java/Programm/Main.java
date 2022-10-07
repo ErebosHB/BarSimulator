@@ -1,15 +1,22 @@
 package Programm;
 
 
-import Klasssen.Area;
-import Klasssen.Bar;
-import Klasssen.Guest;
-import Klasssen.Musician;
+import Klasssen.*;
 
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+        Area area1 = new Area("Bühne");
+        area1.setGuestlist(new ArrayList<>());
+        Area area2 = new Area("Theke");
+        area2.setGuestlist(new ArrayList<>());
+        Area area3 = new Area("Tür");
+        area3.setGuestlist(new ArrayList<>());
+
+        Bar bar = new Bar("Kneipe",area1,area2,area3,3,3,3);
+        bar.setLiveBand(new ArrayList<>());
+
         Guest guest1 = new Guest("Tom","Bulke");
         Guest guest2 = new Guest("Tom","Vogel");
         Guest guest3 = new Guest("Tom","Maier");
@@ -26,14 +33,7 @@ public class Main {
         Musician musician3 = new Musician("Max","Kaiser","Keyboard");
         Musician musician4 = new Musician("Anton","Kaiser","Schlagzeug");
 
-        Area area1 = new Area("Bühne");
-        area1.setGuestlist(new ArrayList<>());
-        Area area2 = new Area("Theke");
-        area2.setGuestlist(new ArrayList<>());
-        Area area3 = new Area("Tür");
-        area3.setGuestlist(new ArrayList<>());
 
-        Bar bar = new Bar("Kneipe",area1,area2,area3,3,3,3);
         guest1.platzSuche(bar);
         guest2.platzSuche(bar);
         guest3.platzSuche(bar);
@@ -44,10 +44,17 @@ public class Main {
         guest8.platzSuche(bar);
         guest9.platzSuche(bar);
         guest10.platzSuche(bar);
+        musician1.enterMusiker(bar);
+        musician2.enterMusiker(bar);
+        musician3.enterMusiker(bar);
+        musician4.enterMusiker(bar);
+
 
         System.out.println(bar);
-
-
+        System.out.println("---------------");
+//        for (int x = 0; x < bar.getPersonen().size();x++){
+//            bar.getPersonen().get(x).platzSuche(bar);
+//        }
         guest1.doSomething();
         guest2.doSomething();
         guest3.doSomething();
@@ -57,9 +64,16 @@ public class Main {
         guest7.doSomething();
         guest8.doSomething();
         guest9.doSomething();
-        guest10.doSomething();
-
+        for (int i = 0; i < bar.getLiveBand().size();i++){
+            bar.getLiveBand().get(i).doSomething();
+        }
         System.out.println(bar);
+
+
+
+
+
+
 
 
 

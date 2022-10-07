@@ -1,6 +1,8 @@
 package Klasssen;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Bar {
     private String barName;
@@ -8,17 +10,17 @@ public class Bar {
     private final int maxTheke;
     private final int maxTuer;
 
-    Area buehne;
-    Area theke;
-    Area tuer;
+    private Area buehne;
+    private Area theke;
+    private Area tuer;
     private int maxBar;
 
-    private ArrayList<Person> personenBar;
+    private ArrayList<Person> personen;
     private ArrayList<String> kellner;
     private ArrayList<Musician> liveBand;
 
     public Bar(String barName,Area buehne, Area theke, Area tuer, int maxBuehne,int maxTheke, int maxTuer){
-        personenBar = new ArrayList<>();
+        personen = new ArrayList<>();
         liveBand = new ArrayList<>();
         this.barName = barName;
         this.buehne = buehne;
@@ -49,8 +51,6 @@ public class Bar {
         return tuer;
     }
 
-
-
     public int getMaxBuehne() {
         return maxBuehne;
     }
@@ -68,12 +68,16 @@ public class Bar {
         return maxBar;
     }
 
-    public ArrayList<Person> getPersonenBar() {
-        return personenBar;
+    public ArrayList<Person> getPersonen() {
+        return personen;
     }
 
-    public void setPersonenBar(ArrayList<Person> personenBar) {
-        this.personenBar = personenBar;
+    public Person getPersonByLastName(String lastName){
+        return personen.stream().filter(e -> e.getNachname().equals(lastName)).findFirst().get();
+    }
+
+    public void setPersonen(ArrayList<Person> personen) {
+        this.personen = personen;
     }
 
     public ArrayList<Musician> getLiveBand() {
@@ -81,7 +85,7 @@ public class Bar {
     }
 
     public void setLiveBand(ArrayList<Musician> liveBand) {
-        if (kellner.size()>=5){
+        if (liveBand.size()>=5){
             System.out.println("Es ist nicht genug Platz auf der Bühne für die Band");
         }
         this.liveBand = liveBand;
@@ -104,15 +108,15 @@ public class Bar {
     @Override
     public String toString() {
         return "\nBar:\t" + barName + "\t\t" +
+                "\nPlätze:\t" + maxBar +
+                "\nGäste in der Bar:\t" + personen.size() +
+                "\n\nPlätze:\t" + maxBuehne +
                 getBuehne()+
-                "\nPlätze auf der Bühne:\t" + maxBuehne +
+                "\n\nPlätze:\t" + maxTheke +
                 getTheke()+
-                "\nPlätze an der Theke:\t" + maxTheke +
+                "\n\nPlätze:\t" + maxTuer +
                 getTuer()+
-                "\nPlätze an der Tür:\t" + maxTuer +
-                "\nPlätze in der Bar:\t" + maxBar +
-                "\nGäste in der Bar:\t" + personenBar +
-                "\nAnzahl kellner:\t" + anzahlKellner() +
-                "\nAnzahl Band-Mitglieder:\t" + liveBand;
+                "\n\nAnzahl kellner:\t" + anzahlKellner() +
+                "\nAnzahl Band-Mitglieder:\t"+liveBand.size()+"\n" + liveBand;
     }
 }

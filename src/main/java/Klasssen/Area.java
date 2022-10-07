@@ -4,9 +4,7 @@ import java.util.ArrayList;
 
 public class Area {
     private String name;
-
-    private Bar bar;
-    private ArrayList<Guest> guestlist;
+    private ArrayList<Person> guestlist;
 
 
     public Area(String name){
@@ -35,7 +33,7 @@ public class Area {
     @Override
     public String toString() {
         String text = "\nBereich: "+getName();
-        text+="\nGäste: "+getGuestlist();
+        text+="\nGäste: "+guestlist.size()+"\n"+getGuestlist();
         return text;
     }
 }
