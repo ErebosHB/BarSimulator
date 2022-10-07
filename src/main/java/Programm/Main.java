@@ -45,7 +45,7 @@ public class Main {
         Musician musician3 = new Musician("Max", "Kaiser", "Keyboard");
         Musician musician4 = new Musician("Anton", "Kaiser", "Schlagzeug");
 
-//        while (true){
+        while (true) {
 //            for (int x = 0; x < lebende.size(); x++){
 //                lebende.get(x).platzSuche(bar);
 //            }
@@ -62,24 +62,14 @@ public class Main {
             }
             System.out.println("---------------");
 
-            guest1.doSomething(bar);
-            guest2.doSomething(bar);
-            guest3.doSomething(bar);
-            guest4.doSomething(bar);
-            guest5.doSomething(bar);
-            guest6.doSomething(bar);
-            guest7.doSomething(bar);
-            guest8.doSomething(bar);
-            guest9.doSomething(bar);
-            guest10.doSomething(bar);
-
             System.out.println(bar);
             waitFor();
 
 
-
         }
-        private static void waitFor(){
+
+    }
+    private static void waitFor () {
         try {
             Thread.sleep(4000);
         } catch (InterruptedException e) {
@@ -87,7 +77,7 @@ public class Main {
         }
 
     }
-        }
+}
 
 
 
